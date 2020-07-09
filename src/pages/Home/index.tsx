@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text } from 'react-native';
 import Lottie from 'lottie-react-native';
+import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import lightGit from '../../assets/lightGit.json';
@@ -8,6 +9,8 @@ import lightGit from '../../assets/lightGit.json';
 import { Container, Title, Info, OpenButton, styles } from './styles';
 
 const Home: React.FC = () => {
+  const navigation = useNavigation();
+
   return (
     <Container>
       <Title>Gist Scan</Title>
@@ -23,8 +26,11 @@ const Home: React.FC = () => {
         <Text style={{ color: '#f15a24' }}> QRcode Scan</Text>
       </Info>
 
-      <OpenButton style={styles.shadow}>
-        <Icon name="qrcode-scan" size={40} color="#fff" />
+      <OpenButton
+        onPress={() => navigation.navigate('QRcodeScan')}
+        style={styles.shadow}
+      >
+        <Icon name="qrcode-scan" size={40} color="#e5e5e5" />
       </OpenButton>
     </Container>
   );
