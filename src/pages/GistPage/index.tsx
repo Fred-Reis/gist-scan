@@ -1,13 +1,30 @@
-import React from 'react';
-import { ScrollView } from 'react-native';
+import React, { useState, useCallback } from 'react';
+import { FlatList } from 'react-native';
 import SyntaxHighlighter from 'react-native-syntax-highlighter';
-import { github, docco, dracula } from 'react-syntax-highlighter/styles/hljs';
+import { github } from 'react-syntax-highlighter/styles/hljs';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { useNavigation } from '@react-navigation/native';
 
-// import { Container } from './styles';
+import {
+  Container,
+  Title,
+  customStyles,
+  CommentContainer,
+  Avatar,
+  TextContainer,
+  NameText,
+  CommentText,
+  Input,
+  SubmitButton,
+  TextButton,
+  HomeButton,
+} from './styles';
 
 const GistPage: React.FC = () => {
-  const code = `const boot = {
+  const [data, setData] = useState<string>('');
+  const navigation = useNavigation();
 
+  const code = `const boot = {
     on: {
       FOLLOW: 'follower'
     }
@@ -115,20 +132,95 @@ const GistPage: React.FC = () => {
 
 
 
-  const fetchMachine = Machine(def_machine);
+  const fetchMachine = Machine(def_machine);`;
 
-  `;
+  const comments = [
+    {
+      id: 1,
+      owner: {
+        login: 'nome',
+        avatar_url: 'https://avatars0.githubusercontent.com/u/11826350?v=4',
+      },
+      body:
+        'um texto muito gerande pra caber em uma linha só um texto muito gerande pra caber em uma linha só um texto muito gerande pra caber em uma linha só um texto muito gerande pra caber em uma linha só ',
+    },
+    {
+      id: 2,
+      owner: {
+        login: 'nome1',
+        avatar_url: 'https://avatars0.githubusercontent.com/u/11826350?v=4',
+      },
+      body: 'um texto 1',
+    },
+    {
+      id: 3,
+      owner: {
+        login: 'nome2',
+        avatar_url: 'https://avatars0.githubusercontent.com/u/11826350?v=4',
+      },
+      body: 'um texto2',
+    },
+    {
+      id: 4,
+      owner: {
+        login: 'nome3',
+        avatar_url: 'https://avatars0.githubusercontent.com/u/11826350?v=4',
+      },
+      body: 'um texto3',
+    },
+  ];
+
+  const getData = useCallback((e: string) => {
+    setData(e);
+  }, []);
 
   return (
-    <ScrollView style={{ maxHeight: 400, flex: 1 }}>
+    <Container>
+      <Title>Gist Content</Title>
       <SyntaxHighlighter
-        customStyle={{ padding: 0, margin: 20 }}
-        language="javascript"
+        customStyle={customStyles}
+        fontSize={14}
+        language="typescript"
         style={github}
       >
         {code}
       </SyntaxHighlighter>
-    </ScrollView>
+
+      <Title>Comments</Title>
+
+      <FlatList
+        style={{ maxHeight: 300 }}
+        data={comments}
+        keyExtractor={(comment) => String(comment.id)}
+        showsVerticalScrollIndicator={false}
+        renderItem={({ item }: any) => (
+          <CommentContainer>
+            <Avatar source={{ uri: item.owner.avatar_url }} />
+
+            <TextContainer>
+              <NameText>{item.owner.login}</NameText>
+              <CommentText>{item.body}</CommentText>
+            </TextContainer>
+          </CommentContainer>
+        )}
+      />
+
+      <Title>Create new Comment</Title>
+      <Input
+        placeholder="Write a comment"
+        value={data}
+        onChangeText={getData}
+        multiline={true}
+      />
+
+      <SubmitButton onPress={() => console.warn(data)}>
+        <TextButton>Send Comment</TextButton>
+      </SubmitButton>
+
+      <HomeButton onPress={() => navigation.navigate('Home')}>
+        <Icon name="home-circle" color="#e5e5e5" size={40} />
+      </HomeButton>
+    </Container>
   );
 };
 
