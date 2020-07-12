@@ -71,7 +71,7 @@ export const TextButton = styled.Text`
 
 export const HomeButton = styled.TouchableOpacity`
   position: absolute;
-  bottom: 35px;
+  bottom: 32px;
   right: 20px;
 `;
 

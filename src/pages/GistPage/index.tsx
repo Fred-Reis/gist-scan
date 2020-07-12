@@ -218,7 +218,7 @@ const GistPage: React.FC = () => {
       </SubmitButton>
 
       <HomeButton onPress={() => navigation.navigate('Home')}>
-        <Icon name="home-circle" color="#e5e5e5" size={40} />
+        <Icon name="home-circle" color="#e5e5e5" size={45} />
       </HomeButton>
     </Container>
   );

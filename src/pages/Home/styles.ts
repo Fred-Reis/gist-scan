@@ -29,7 +29,7 @@ export const OpenButton = styled.TouchableOpacity`
   position: absolute;
   height: 80px;
   width: 80px;
-  border-radius: 40px;
+  border-radius: 10px;
   background-color: #f15a24;
   bottom: 50px;
   align-items: center;

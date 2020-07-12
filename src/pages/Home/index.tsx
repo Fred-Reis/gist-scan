@@ -22,12 +22,12 @@ const Home: React.FC = () => {
         style={{ marginBottom: 100, marginHorizontal: 20 }}
       />
       <Info>
-        Press the button bellow to open{' '}
-        <Text style={{ color: '#f15a24' }}> QRcode Scan</Text>
+        Press the button to open
+        <Text style={{ color: '#f15a24' }}> QRcode Scanner</Text>
       </Info>
 
       <OpenButton
-        onPress={() => navigation.navigate('QRcodeScan')}
+        onPress={() => navigation.navigate('QRcodeScanner')}
         style={styles.shadow}
       >
         <Icon name="qrcode-scan" size={40} color="#e5e5e5" />
