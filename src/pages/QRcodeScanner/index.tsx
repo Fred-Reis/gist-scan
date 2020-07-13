@@ -1,13 +1,9 @@
 import React, { useCallback, useState } from 'react';
-import { ActivityIndicator, View, processColor } from 'react-native';
+import { ActivityIndicator, View } from 'react-native';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import Lottie from 'lottie-react-native';
-
-import { config } from '../../utils/config';
-import { authorize } from 'react-native-app-auth';
-import axios from 'axios';
 
 import CustomModal from '../../components/Modal';
 
@@ -55,62 +51,61 @@ const QRcodeScan: React.FC = () => {
     async (e: any): Promise<any> => {
       setLoading(true);
 
-      const authState = await authorize(config);
+      const data = e.data;
 
-      axios.defaults.headers.common['Authorization'] = authState.accessToken;
+      if (!data.indexOf('http')) {
+        if (data.indexOf('https')) {
+          setModalTitle('Only Gists');
+          setModalDescription(`This QRcode don't contain a valid Gist url.`);
+          setLoading(false);
+          toggleModal();
 
-      console.log('auth completo', authState);
+          return;
+        } else if (!data.indexOf('https')) {
+          try {
+            const newData = data.split('/');
 
-      console.log('auth direto', authState.accessToken);
+            const gistID = newData[newData.length - 1];
 
-      console.log(
-        'auth no axios',
-        axios.defaults.headers.common['Authorization'],
-      );
+            const response = await api.get(`/${gistID}`);
 
-      // const response = await fetch('https://github.com/login/oauth/authorize');
+            navigation.navigate('GistPage', {
+              data: response.data,
+              id: gistID,
+            });
+            setLoading(false);
+          } catch (err) {
+            setModalTitle('Sorry, something went wrong,');
+            setModalDescription(err.message);
+            setLoading(false);
+            toggleModal();
+            return;
+          }
 
-      // console.log(response.json());
+          setLoading(false);
 
-      // const newData = data.split('/');
+          return;
+        }
+      }
 
-      // const gistID = newData[newData.length - 1];
-      // console.log('aqui no id', gistID);
+      try {
+        console.log(data);
+        const response = await api.get(`/${data}`);
 
-      // const response = await api.get(`/${gistID}`);
-
-      // setLoading(false);
-
-      // console.log(response.data);
-
-      // return;
-
-      // if (data.indexOf('http')) {
-      //   if (data.indexOf('https') !== 1) {
-      //     setModalTitle('Only Gists');
-      //     setModalDescription(`This QRcode don't contain a valid Gist url.`);
-      //     setLoading(false);
-      //     toggleModal();
-      //     startScan(); // não funfou
-      //     return;
-      //   } else if (data.indexOf('https')) {
-      //     const newData = data.split('/');
-
-      //     const gistID = newData[newData.length - 1];
-      //     console.log('aqui no id', gistID);
-
-      //     // const response = await api.get(`/${gistID}`);
-      //     setLoading(false);
-
-      //     // console.log(response.data);
-
-      //     return;
-      //   }
-      // }
+        navigation.navigate('GistPage', {
+          data: response.data,
+          id: data,
+        });
+        setLoading(false);
+      } catch (err) {
+        setModalTitle('Sorry, something went wrong,');
+        setModalDescription(err.message);
+        setLoading(false);
+        toggleModal();
+        return;
+      }
 
       setLoading(false);
-
-      // navigation.navigate('GistPage', { data: e.data });
     },
     [navigation],
   );
