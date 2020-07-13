@@ -5,6 +5,13 @@ export const Container = styled.View`
   padding: 30px 20px;
 `;
 
+export const LoadingContainer = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.7;
+`;
+
 export const Title = styled.Text`
   color: #e5e5e5;
   font-size: 16px;
@@ -26,6 +33,7 @@ export const Avatar = styled.Image`
   width: 50px;
   border-radius: 25px;
   border: 2px rgba(0, 0, 0, 0.2);
+  border-style: solid;
 `;
 
 export const TextContainer = styled.View`
@@ -37,6 +45,25 @@ export const NameText = styled.Text`
   margin-bottom: 3px;
   font-size: 16px;
   color: #f15a24;
+  font-weight: bold;
+`;
+
+export const NoCommentsContainer = styled.View`
+  height: 300px;
+  background-color: rgba(229, 229, 229, 0.5);
+  width: 100%;
+  border-radius: 10px;
+  padding: 30px;
+  border-width: 2px;
+  border-color: rgba(229, 229, 229, 0.4);
+  align-items: center;
+  justify-content: center;
+`;
+
+export const NoCommentText = styled.Text`
+  margin-bottom: 10px;
+  font-size: 25px;
+  color: #e5e5e5;
   font-weight: bold;
 `;
 
@@ -73,6 +100,12 @@ export const HomeButton = styled.TouchableOpacity`
   position: absolute;
   bottom: 32px;
   right: 20px;
+`;
+
+export const ModalCloseButtom = styled.TouchableOpacity`
+  position: absolute;
+  top: 10px;
+  right: 10px;
 `;
 
 export const customStyles = {
