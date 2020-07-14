@@ -64,11 +64,11 @@ This project was developed as a technical test.
 
 ## 👀 Demo
 
-<center>
+<center >
 
-![demo](src/assets/readme/app.gif)
+<img src= "src/assets/readme/app.gif" height="250px">
 
-</center>
+</center >
 
 ## 💡 About this challenge:
 
@@ -104,7 +104,7 @@ $ yarn test
 
 The test details will be displayed on your console.
 
-![teste](src/assets/readme/tests.gif)
+<img src= "src/assets/readme/tests.gif" height="250px">
 
 If you prefer, run the following command to generate the coverage folder
 
