@@ -29,9 +29,7 @@ This project was developed as a technical test.
 
 ## 👀 Demo
 
-<div align="center">
   <img src= "src/assets/readme/app.gif" height="400px" >
-</div>
 
 ## 💡 About this challenge:
 
