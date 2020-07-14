@@ -60,15 +60,11 @@ This project was developed as a technical test.
     <img src="https://img.shields.io/badge/Author-a5a5a5"/>
   </a> -->
 
-#########
-
 ## 👀 Demo
 
-<center >
-
-<img src= "src/assets/readme/app.gif" height="250px">
-
-</center >
+<div align="center">
+  <img src= "src/assets/readme/app.gif" height="400px" >
+</div>
 
 ## 💡 About this challenge:
 
