@@ -39,7 +39,7 @@ On this project was developed a mobile app that allows users comment on Github G
 
 > More info about this challenge [here on original file](info.md)
 
-## ⚙️ API:
+## ⚙️ API
 
 The use of the Github GIST API is mandatory. You can access it through [the following link](https://developer.github.com/v3/gists/);
 
