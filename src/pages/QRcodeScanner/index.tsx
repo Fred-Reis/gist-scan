@@ -41,12 +41,14 @@ const QRcodeScan: React.FC = () => {
     }, []),
   );
 
+  // function to restart scanner
   const startScan = useCallback(() => {
     if (scanner) {
       scanner._setScanning(false);
     }
   }, []);
 
+  // function to scanner QRCode
   const handleScanQRcode = useCallback(
     async (e: any): Promise<any> => {
       setLoading(true);

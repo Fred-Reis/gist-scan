@@ -127,6 +127,7 @@ const GistPage: React.FC = () => {
     [api],
   );
 
+  // function to open modal
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
