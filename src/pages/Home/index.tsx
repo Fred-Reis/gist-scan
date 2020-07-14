@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Text } from 'react-native';
 import Lottie from 'lottie-react-native';
 import { useNavigation } from '@react-navigation/native';
@@ -10,6 +10,10 @@ import { Container, Title, Info, OpenButton, styles } from './styles';
 
 const Home: React.FC = () => {
   const navigation = useNavigation();
+
+  const openQRcodeScanner = useCallback(() => {
+    navigation.navigate('QRcodeScanner');
+  }, []);
 
   return (
     <Container>
@@ -27,7 +31,8 @@ const Home: React.FC = () => {
       </Info>
 
       <OpenButton
-        onPress={() => navigation.navigate('QRcodeScanner')}
+        testID="open-qrcode-test"
+        onPress={openQRcodeScanner}
         style={styles.shadow}
       >
         <Icon name="qrcode-scan" size={40} color="#e5e5e5" />

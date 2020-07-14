@@ -27,39 +27,6 @@ This project was developed as a technical test.
 
 <hr/>
 
-<h3 align="center">Links:</h3>
-
-<p align="center">
-
-  <!-- <a href="#-sobre-esse-desafio">
-    <img src="https://img.shields.io/badge/Sobre_o_Desafio-a5a5a5"/>
-  </a>&nbsp;&nbsp;
-  <a href="#-requisitos">
-    <img src="https://img.shields.io/badge/Requisitos-a5a5a5"/>
-  </a>&nbsp;&nbsp;
-  <a href="#-especificacoes-tecnicas">
-    <img src="https://img.shields.io/badge/Especificações_técnicas-a5a5a5"/>
-  </a>&nbsp;&nbsp;
-  <a href="#-arquitetura">
-    <img src="https://img.shields.io/badge/Arquitetura-a5a5a5"/>
-  </a>&nbsp;&nbsp;
-  <a href="#-sobre-a-api">
-    <img src="https://img.shields.io/badge/Sobre_a_API-a5a5a5"/>
-  </a>&nbsp;&nbsp;
-  <a href="#-testes">
-    <img src="https://img.shields.io/badge/Testes-a5a5a5"/>
-  </a>&nbsp;&nbsp;
-  <a href="#-tecnologias-e-ferramentas">
-    <img src="https://img.shields.io/badge/Tecnologias_Ferramentas-a5a5a5"/>
-  </a>&nbsp;&nbsp;
-  <a href="#-executando-o-projeto">
-    <img src="https://img.shields.io/badge/Executando_Projeto-a5a5a5"/>
-  </a>&nbsp;&nbsp;
-
-  <a href="#author-frederico-reis">
-    <img src="https://img.shields.io/badge/Author-a5a5a5"/>
-  </a> -->
-
 ## 👀 Demo
 
 <div align="center">
