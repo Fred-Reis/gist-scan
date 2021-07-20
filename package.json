@@ -18,7 +18,7 @@
     "lottie-react-native": "^3.4.0",
     "polished": "^3.6.5",
     "react": "16.11.0",
-    "react-native": "0.62.2",
+    "react-native": "0.62.3",
     "react-native-app-auth": "^5.1.2",
     "react-native-camera": "^3.31.0",
     "react-native-gesture-handler": "^1.6.1",
